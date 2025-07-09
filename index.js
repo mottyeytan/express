@@ -16,7 +16,7 @@ server.get('/greet', (req,res)=>{
 server.get('/user/:id/age/:age', (req, res)=>{
     const userID = req.params.id
     const age = req.params.age
-   
+   req.
     res.send(`user id is ${userID} and age is ${age}`)
 })
 
@@ -35,13 +35,18 @@ server.get('/greet/:name', (req, res)=>{
 
 
 server.get('/test', async (req, res)=>{
-    const respond = fetch('http://localhost:3000/greet/motty')
-    const data = await (await respond).json()
+    try{
+        const respond = fetch('http://express-4cxm.onrender.com/greet/mottgffffgy')
+        const data =  await respond.json()
+        
     
+        if(data.msg === 'got name: mottttt'){
+            res.json({result:"ok"})
+        }else{
+            res.json({result:"faild"})
+        }
 
-    if(data.msg === 'got name: motty'){
-        res.json({result:"ok"})
-    }else{
+    }catch(err){
         res.json({result:"faild"})
     }
      
@@ -69,7 +74,7 @@ server.post('/action', async (req,res)=>{
         res.status(200).json(joke)
 
     }else if(data.action === "cat fact"){
-        const get =  await fetch(`https://api.thecatapi.com/v1/images/search?limit=12&breed_ids=beng&api_key=${key}`)
+        const get =  await fetch(`https://api.thecatapi.com/v1/images/search?limit=11&breed_ids=beng&api_key=${key}`)
        
         const data = await get.json();
         
