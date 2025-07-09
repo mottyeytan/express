@@ -36,11 +36,11 @@ server.get('/greet/:name', (req, res)=>{
 
 server.get('/test', async (req, res)=>{
     try{
-        const respond = fetch('http://express-4cxm.onrender.com/greet/mottgffffgy')
+        const respond = fetch('http://express-4cxm.onrender.com/greet/motty')
         const data =  await respond.json()
         
     
-        if(data.msg === 'got name: mottttt'){
+        if(data.msg === 'got name: motty'){
             res.json({result:"ok"})
         }else{
             res.json({result:"faild"})
